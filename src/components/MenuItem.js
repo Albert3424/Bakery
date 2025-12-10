@@ -1,5 +1,6 @@
 import React from 'react';
 import './MenuItem.css';
+<img src="/images/apple-pie.jpg" alt="Яблочный пирог" />
 
 function MenuItem({ name, image, price, onAddToCart, item }) {
   return (
