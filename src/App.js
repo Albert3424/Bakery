@@ -12,21 +12,22 @@ import MenuPage from './pages/MenuPage';
 
 function App() {
   const menuItems = [
-    { id: 1, name: 'Яблочный пирог', image: '/images/apple-pie.jpg', category: 'Пироги', price: 650 },
-    { id: 2, name: 'Вишневый пирог', image: '/images/cherry-pie.jpg', category: 'Пироги', price: 720 },
-    { id: 3, name: 'Тыквенный пирог', image: '/images/pumpkin-pie.jpg', category: 'Пироги', price: 500 },
+    { id: 1, name: 'Яблочный пирог', image: './images/apple-pie.jpg', category: 'Пироги', price: 650 },
+    { id: 2, name: 'Вишневый пирог', image: './images/cherry-pie.jpg', category: 'Пироги', price: 720 },
+    { id: 3, name: 'Тыквенный пирог', image: './images/pumpkin-pie.jpg', category: 'Пироги', price: 500 },
+    { id: 4, name: 'Мясной пирог', image: './images/meat-pie.jpg', category: 'Пироги', price: 625 },
 
-    { id: 4, name: 'Пирожок с яйцом', image: '/images/egg-pirozhok.jpg', category: 'Пирожки', price: 80 },
-    { id: 5, name: 'Пирожок с вишней', image: '/images/cherry-pirozhok.jpg', category: 'Пирожки', price: 90 },
-    { id: 6, name: 'Пирожок с смородиной', image: '/images/currant-pirozhok.jpg', category: 'Пирожки', price: 120 },
+    { id: 5, name: 'Пирожок с яйцом', image: './images/egg-pirozhok.jpg', category: 'Пирожки', price: 80 },
+    { id: 6, name: 'Пирожок с вишней', image: './images/cherry-pirozhok.jpg', category: 'Пирожки', price: 90 },
+    { id: 7, name: 'Пирожок с смородиной', image: './images/currant-pirozhok.jpg', category: 'Пирожки', price: 120 },
 
-    { id: 7, name: 'Маргарита', image: '/images/pizza-margherita.jpg', category: 'Пицца', price: 450 },
-    { id: 8, name: 'Пепперони', image: '/images/pizza-pepperoni.jpg', category: 'Пицца', price: 580 },
-    { id: 9, name: 'Гавайская', image: '/images/pizza-cheese.jpg', category: 'Пицца', price: 490 },
+    { id: 8, name: 'Маргарита', image: './images/pizza-margherita.jpg', category: 'Пицца', price: 450 },
+    { id: 9, name: 'Пепперони', image: './images/pizza-pepperoni.jpg', category: 'Пицца', price: 580 },
+    { id: 10, name: 'Гавайская', image: './images/pizza-cheese.jpg', category: 'Пицца', price: 490 },
 
-    { id: 10, name: 'Эспрессо', image: '/images/espresso.jpg', category: 'Кофе', price: 150 },
-    { id: 11, name: 'Капучино', image: '/images/cappuccino.jpg', category: 'Кофе', price: 200 },
-    { id: 12, name: 'Латте', image: '/images/latte.jpg', category: 'Кофе', price: 220 },
+    { id: 11, name: 'Эспрессо', image: './images/espresso.jpg', category: 'Кофе', price: 150 },
+    { id: 12, name: 'Капучино', image: './images/cappuccino.jpg', category: 'Кофе', price: 200 },
+    { id: 13, name: 'Латте', image: './images/latte.jpg', category: 'Кофе', price: 220 },
   ];
 
 const [cartItems, setCartItems] = useState([]);
@@ -69,7 +70,7 @@ const [cartItems, setCartItems] = useState([]);
             <>
               <header className="App-header">
                 <img
-                  src="/images/bakeryicon.jpg"
+                  src="./images/bakeryicon.jpg"
                   alt="Логотип пекарни"
                   className="bakery-logo"
                 />
