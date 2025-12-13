@@ -1,25 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import './Navbar.css';
 
 function Navbar({ totalItemsInCart }) {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <a href="/">The Bakery Shop</a>
+        <Link to="/">The Bakery Shop</Link>
       </div>
       <ul className="navbar-links">
-        <li><a href="/">Главная</a></li>
-        <li><a href="/menu">Меню</a></li>
-        <li><a href="/about">О нас</a></li>
-        <li><a href="/contacts">Контакты</a></li>
-        {}
+        <li>
+          <Link to="/">Главная</Link>
+        </li>
+        <li>
+          <Link to="/menu">Меню</Link>
+        </li>
+        <li>
+          <Link to="/about">О нас</Link>
+        </li>
+        <li>
+          <Link to="/contact">Контакты</Link> 
+        </li>
+        
         <li className="cart-icon-container">
-          <a href="/cart" className="cart-icon-link">
+          <Link to="/cart" className="cart-icon-link">
             🛒 Корзина
             {totalItemsInCart > 0 && (
               <span className="cart-count">{totalItemsInCart}</span>
             )}
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
@@ -27,3 +36,4 @@ function Navbar({ totalItemsInCart }) {
 }
 
 export default Navbar;
+

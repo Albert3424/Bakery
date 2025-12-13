@@ -1,8 +1,14 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import MenuItem from './components/MenuItem';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Cart from './pages/Cart';
+import MenuPage from './pages/MenuPage';
 
 function App() {
   const menuItems = [
@@ -52,43 +58,68 @@ const [cartItems, setCartItems] = useState([]);
   }, {});
 
   return (
-    <div className="App">
-      {}
-      <Navbar totalItemsInCart={totalCartQuantity} />
+  
+    <Router>
+      <div className="App">
+        <Navbar totalItemsInCart={totalCartQuantity} />
 
-      <header className="App-header">
-        {}
-        <img
-          src="/images/bakeryicon.jpg"
-          alt="Логотип пекарни"
-          className="bakery-logo"
-        />
-        <h1>Добро пожаловать в нашу пекарню!</h1>
-        <p>Насладитесь свежей выпечкой и ароматным кофе.</p>
-      </header>
-
-      <main className="App-main">
-        <h2>Наше меню</h2>
-        {Object.keys(groupedMenuItems).map(categoryName => (
-          <section key={categoryName} className="menu-category-section">
-            <h3 className="category-title">{categoryName}</h3>
-            <div className="menu-container">
-              {groupedMenuItems[categoryName].map(item => (
-                <MenuItem
-                  key={item.id}
-                  item={item}
-                  name={item.name}
-                  image={item.image}
-                  price={item.price}
-                  onAddToCart={handleAddToCart} 
+        <Routes>
+          
+          <Route path="/" element={
+            <>
+              <header className="App-header">
+                <img
+                  src="/images/bakeryicon.jpg"
+                  alt="Логотип пекарни"
+                  className="bakery-logo"
                 />
-              ))}
-            </div>
-          </section>
-        ))}
-      </main>
-      <Footer />
-    </div>
+                <h1>Добро пожаловать в нашу пекарню!</h1>
+                <p>Насладитесь свежей выпечкой и ароматным кофе.</p>
+              </header>
+
+              <main className="App-main">
+                <h2>Наше меню</h2>
+                {Object.keys(groupedMenuItems).map(categoryName => (
+                  <section key={categoryName} className="menu-category-section">
+                    <h3 className="category-title">{categoryName}</h3>
+                    <div className="menu-container">
+                      {groupedMenuItems[categoryName].map(item => (
+                        <MenuItem
+                          key={item.id}
+                          item={item}
+                          name={item.name}
+                          image={item.image}
+                          price={item.price}
+                          onAddToCart={handleAddToCart} 
+                        />
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </main>
+            </>
+          } />
+
+          <Route path="/menu" element={
+            <MenuPage 
+              groupedMenuItems={groupedMenuItems} 
+              onAddToCart={handleAddToCart} 
+            />} 
+          />
+
+          <Route path="/about" element={<About />} />
+
+          <Route path="/contact" element={<Contact />} />
+
+          <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+
+          <Route path="*" element={<h1>404: Страница не найдена</h1>} />
+
+        </Routes>
+        
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
