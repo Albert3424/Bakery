@@ -1,8 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { CartContext } from '../contexts/CartContext';
 
-function Navbar({ totalItemsInCart }) {
+function Navbar() {
+  const { cart } = useContext(CartContext);
+
+  const totalItemsInCart = cart.reduce((sum, item) => sum + item.qty, 0);
+
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -19,9 +24,9 @@ function Navbar({ totalItemsInCart }) {
           <Link to="/about">О нас</Link>
         </li>
         <li>
-          <Link to="/contact">Контакты</Link> 
+          <Link to="/contact">Контакты</Link>
         </li>
-        
+
         <li className="cart-icon-container">
           <Link to="/cart" className="cart-icon-link">
             🛒 Корзина
@@ -36,4 +41,3 @@ function Navbar({ totalItemsInCart }) {
 }
 
 export default Navbar;
-

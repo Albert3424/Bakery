@@ -2,29 +2,37 @@ import React from 'react';
 import MenuItem from '../components/MenuItem';
 import '../App.css';
 
-function MenuPage({ menuItems, groupedMenuItems, onAddToCart }) {
-    return (
+const MenuPage = ({ menuItems }) => {
+
+  const groupedMenuItems = menuItems.reduce((acc, item) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category].push(item);
+    return acc;
+  }, {});
+
+  return (
     <main className="App-main">
-        <h2>Наше меню</h2>
-        {Object.keys(groupedMenuItems).map(categoryName => (
+      <h2>Наше меню</h2>
+      {Object.entries(groupedMenuItems).map(([categoryName, items]) => (
         <section key={categoryName} className="menu-category-section">
-            <h3 className="category-title">{categoryName}</h3>
-            <div className="menu-container">
-            {groupedMenuItems[categoryName].map(item => (
-                <MenuItem
+          <h3 className="category-title">{categoryName}</h3>
+          <div className="menu-container">
+            {items.map(item => (
+              <MenuItem
                 key={item.id}
-                item={item}
+                item={item} 
                 name={item.name}
                 image={item.image}
                 price={item.price}
-                onAddToCart={onAddToCart} 
               />
             ))}
           </div>
         </section>
-              ))}
+      ))}
     </main>
-      );
-    }
+  );
+};
 
-    export default MenuPage;
+export default MenuPage;
