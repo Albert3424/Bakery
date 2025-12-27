@@ -12,22 +12,22 @@ import Cart from './pages/Cart';
 import MenuPage from './pages/MenuPage';
 
 const menuItemsData = [
-  { id: 1, name: 'Яблочный пирог', image: './images/apple-pie.jpg', category: 'Пироги', price: 650, description: 'Сладкий и ароматный яблочный пирог.' },
-  { id: 2, name: 'Вишневый пирог', image: './images/cherry-pie.jpg', category: 'Пироги', price: 720, description: 'Нежный пирог с сочной вишней.' },
-  { id: 3, name: 'Тыквенный пирог', image: './images/pumpkin-pie.jpg', category: 'Пироги', price: 500, description: 'Идеален для осеннего чаепития.' },
-  { id: 4, name: 'Мясной пирог', image: './images/meat-pie.jpg', category: 'Пироги', price: 625, description: 'Сытный пирог с ароматной мясной начинкой.' },
+  { id: 1, name: 'Яблочный пирог', image: '/images/apple-pie.jpg', category: 'Пироги', price: 650 },
+  { id: 2, name: 'Вишневый пирог', image: '/images/cherry-pie.jpg', category: 'Пироги', price: 720 },
+  { id: 3, name: 'Тыквенный пирог', image: '/images/pumpkin-pie.jpg', category: 'Пироги', price: 500 },
+  { id: 4, name: 'Мясной пирог', image: '/images/meat-pie.jpg', category: 'Пироги', price: 625 },
 
-  { id: 5, name: 'Пирожок с яйцом', image: './images/egg-pirozhok.jpg', category: 'Пирожки', price: 80, description: 'Классический пирожок с яйцом и зеленым луком.' },
-  { id: 6, name: 'Пирожок с вишней', image: './images/cherry-pirozhok.jpg', category: 'Пирожки', price: 90, description: 'Нежный пирожок со сладкой вишней.' },
-  { id: 7, name: 'Пирожок с смородиной', image: './images/currant-pirozhok.jpg', category: 'Пирожки', price: 120, description: 'Пикантный пирожок с кисло-сладкой смородиной.' },
+  { id: 5, name: 'Пирожок с яйцом', image: '/images/egg-pirozhok.jpg', category: 'Пирожки', price: 80 },
+  { id: 6, name: 'Пирожок с вишней', image: '/images/cherry-pirozhok.jpg', category: 'Пирожки', price: 90 },
+  { id: 7, name: 'Пирожок с смородиной', image: '/images/currant-pirozhok.jpg', category: 'Пирожки', price: 120 },
 
-  { id: 8, name: 'Маргарита', image: './images/pizza-margherita.jpg', category: 'Пицца', price: 450, description: 'Классическая пицца с томатами, моцареллой и базиликом.' },
-  { id: 9, name: 'Пепперони', image: './images/pizza-pepperoni.jpg', category: 'Пицца', price: 580, description: 'Любимая пицца с острой пепперони и сыром.' },
-  { id: 10, name: 'Гавайская', image: './images/pizza-cheese.jpg', category: 'Пицца', price: 490, description: 'Сочетание ветчины, ананасов и сыра.' },
+  { id: 8, name: 'Маргарита', image: '/images/pizza-margherita.jpg', category: 'Пицца', price: 450 },
+  { id: 9, name: 'Пепперони', image: '/images/pizza-pepperoni.jpg', category: 'Пицца', price: 580 },
+  { id: 10, name: 'Гавайская', image: '/images/pizza-cheese.jpg', category: 'Пицца', price: 490 },
 
-  { id: 11, name: 'Эспрессо', image: './images/espresso.jpg', category: 'Кофе', price: 150, description: 'Крепкий и ароматный эспрессо.' },
-  { id: 12, name: 'Капучино', image: './images/cappuccino.jpg', category: 'Кофе', price: 200, description: 'Нежный капучино с молочной пенкой.' },
-  { id: 13, name: 'Латте', image: './images/latte.jpg', category: 'Кофе', price: 220, description: 'Мягкий кофе с молоком.' },
+  { id: 11, name: 'Эспрессо', image: '/images/espresso.jpg', category: 'Кофе', price: 150 },
+  { id: 12, name: 'Капучино', image: '/images/cappuccino.jpg', category: 'Кофе', price: 200 },
+  { id: 13, name: 'Латте', image: '/images/latte.jpg', category: 'Кофе', price: 220 },
 ];
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <CartProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Navbar /> 
 
@@ -50,7 +50,7 @@ function App() {
               <>
                 <header className="App-header">
                   <img
-                    src="./images/bakeryicon.jpg"
+                    src={process.env.PUBLIC_URL + "/images/bakeryicon.jpg"}
                     alt="Логотип пекарни"
                     className="bakery-logo"
                   />

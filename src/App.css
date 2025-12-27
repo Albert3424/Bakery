@@ -35,6 +35,22 @@
   margin-bottom: 30px;
 }
 
+body {
+  background-color: #FDFDF7;
+  background-image: radial-gradient
+  (
+    rgba(160, 82, 45, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  color: #333;
+  min-height: 100vh;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
 .menu-items-grid,
 .menu-container {
   display: grid;

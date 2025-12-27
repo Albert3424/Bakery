@@ -17,7 +17,7 @@ function MenuItem({ name, image, price, item }) {
 
   return (
     <div className="menu-item">
-      <img src={image} alt={name} className="menu-item-image" />
+      <img src={process.env.PUBLIC_URL + image} alt={name} className="menu-item-image" />
       <h3 className="menu-item-name">{name}</h3>
       <div className="menu-item-details">
         <p className="menu-item-price">{price} ₽</p>

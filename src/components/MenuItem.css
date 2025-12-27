@@ -7,7 +7,8 @@
   display: flex; 
   flex-direction: column;
   justify-content: space-between;
-  min-height: 350px; 
+  min-height: 350px;
+  max-width: 750px;
 }
 
 .menu-item:hover {
@@ -16,8 +17,9 @@
 
 .menu-item-image {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
+  object-position: top;
   display: block;
   border-top-left-radius: 8px; 
   border-top-right-radius: 8px;
@@ -28,7 +30,7 @@
   top: 0; 
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   padding: 10px 10px;
   margin: 0;
